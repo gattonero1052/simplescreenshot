@@ -1,0 +1,48 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$theme-primary: mat.define-palette(mat.$blue-palette, 400, 100, 600,700);
+$theme-accent: mat.define-palette(mat.$blue-palette);
+$theme-warn: mat.define-palette(mat.$red-palette);
+$theme: mat.define-light-theme((color: (primary: $theme-primary,
+        accent: $theme-accent,
+        warn: $theme-warn,
+      )));
+
+$config-typography: mat.define-typography-config($font-family: Roboto,
+  );
+
+@include mat.button-theme($theme);
+@include mat.button-typography($config-typography);
+
+@include mat.slide-toggle-theme($theme);
+@include mat.slide-toggle-typography($config-typography);
+
+@include mat.form-field-theme($theme);
+@include mat.form-field-typography($config-typography);
+
+@include mat.input-theme($theme);
+@include mat.input-typography($config-typography);
+
+@include mat.datepicker-theme($theme);
+@include mat.datepicker-typography($config-typography);
+
+@include mat.dialog-theme($theme);
+@include mat.dialog-typography($config-typography);
+
+@include mat.datepicker-date-range-colors(mat.get-color-from-palette($theme-primary, default), 
+mat.get-color-from-palette($theme-primary, 100), 
+mat.get-color-from-palette($theme-primary, 100), 
+mat.get-color-from-palette($theme-primary, 100));
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --primary: #{mat.get-color-from-palette($theme-primary, default)};
+  --primary-light: #{mat.get-color-from-palette($theme-primary, 100)};
+  --background-light: #{mat.get-color-from-palette(mat.$blue-palette, 50)};
+  --disabled-text-light: #{mat.get-color-from-palette(mat.$gray-palette, 500)};
+}

@@ -1,0 +1,24 @@
+<div class="title">
+  <div class="title-shot">Screenshot</div>
+  <div class="title-left">Simple</div>
+  <div class="title-right">
+    <!-- TODO add github link -->
+    <fa-icon [icon]="faGithub"></fa-icon>
+  </div>
+</div>
+<form class="config-items" [formGroup]="configurationForm" novalidate class="config-item">
+  <mat-slide-toggle aria-label="Including scroll bar" formControlName="includingScrollBar" class="config-item">
+    Including scroll bar
+  </mat-slide-toggle>
+  <mat-slide-toggle aria-label="Show zoomed view" formControlName="showZoomedView" class="config-item">
+    Show details
+  </mat-slide-toggle>
+  <mat-slide-toggle aria-label="Auto save screen shot" formControlName="saveScreenshot" class="config-item">
+    Auto save screenshot
+  </mat-slide-toggle>
+  <div class="config-item">
+    <div class="keybind-input">
+      <input title="Set screenshot hotkeys" aria-label="Set screenshot hotkeys" #keyBinderInput placeHolder="Screenshot hot keys"/>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "outDir": "./out-tsc/app",
+    "types": [
+      "chrome",
+      "./node_modules/@types/w3c-image-capture"
+    ]
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts",
+    "src/background/background.ts",
+    "src/page/page.ts",
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}

@@ -1,0 +1,49 @@
+<div class="container">
+  <canvas id="tmpCanvas" style="display:none"></canvas>
+  <div class="toolbar my-custom-style">
+    <div class="content">
+      <div class="name">
+        <span>Simple</span>
+        <div class="name--highlighted"><span>Screenshot</span></div>
+        <div class="icon">
+          <a href="https://github.com/gattonero1052/simplescreenshot" target="_blank"><fa-icon [icon]="faGithub"></fa-icon></a>
+          <fa-icon [icon]="faMugHot"></fa-icon>
+        </div>
+      </div>
+
+      <form [formGroup]="filters" class="filters">
+        <mat-form-field class="website-filter" appearance="fill">
+          <mat-label>Website address</mat-label>
+          <input matInput placeholder="" value="" formControlName="website">
+        </mat-form-field>
+
+        <mat-form-field class="date-filter" appearance="fill">
+          <mat-label>First campaign</mat-label>
+          <mat-date-range-input [rangePicker]="screenshotDateRangePicker"
+            [comparisonStart]="filters.value.screenshotDateStart" [comparisonEnd]="filters.value.screenshotDateStart">
+            <input matStartDate placeholder="Start date" formControlName="screenshotDateStart">
+            <input matEndDate placeholder="End date" formControlName="screenshotDateEnd">
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="screenshotDateRangePicker"></mat-datepicker-toggle>
+          <mat-date-range-picker #screenshotDateRangePicker></mat-date-range-picker>
+        </mat-form-field>
+
+        <button mat-raised-button color="warn" (click)="deleteAll()">Delete All</button>
+      </form>
+    </div>
+  </div>
+  <div class="no-data" *ngIf="screenshots.length == 0">
+    No screenshot found
+  </div>
+  <div class="gallary">
+    <ng-container *ngFor="let screenshot of screenshots;let index = index;">
+      <div class="screenshot" *ngIf="details[index].visible">
+        <img [src]="screenshot" />
+        <div class="info" (click)="showDetail(screenshot,details[index])">
+          <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

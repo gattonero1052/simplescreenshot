@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{data.hostname}} - {{data.ts | date:'MM/dd/yyyy' }}</h1>
+<div mat-dialog-content class="content">
+  <img #imgEl [src]="data.img" />
+</div>
+<div mat-dialog-actions class="actions">
+  <button mat-stroked-button color="primary" (click)="copyDetailImage()">Copy</button>
+  <button mat-stroked-button color="accent" (click)="downloadDetailImage()">Download</button>
+</div>
