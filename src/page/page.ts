@@ -126,7 +126,6 @@ async function loadSettings() {
   if (startHotKeys !== undefined)
     Global.startHotKeys = startHotKeys;
   Global.settingsLoading = false;
-  console.log(Global,startHotKeys);
 }
 
 /**

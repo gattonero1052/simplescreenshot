@@ -1,4 +1,3 @@
-import { STATE } from './types'
 import { mouseDownReducer, mouseUpReducer, mouseMoveReducer, keyboardReducer } from './reducers'
 import { Global as g } from './page';
 

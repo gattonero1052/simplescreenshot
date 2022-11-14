@@ -4,7 +4,6 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FormGroup, FormControl } from '@angular/forms';
 import { from } from 'rxjs';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faMugHot } from '@fortawesome/free-solid-svg-icons';
 

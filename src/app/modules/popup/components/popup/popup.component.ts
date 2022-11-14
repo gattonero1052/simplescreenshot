@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { StorageService } from '../../../../storage.service';
 import { Preset } from '../../../../storage.service';
-import { Config } from '../../../../types';
 import { createHotKeyBinder } from '../../../../keyBinder';
 
 //key like startHotKeys are complex array that hard to use form 
@@ -35,7 +34,6 @@ export class PopupComponent implements AfterViewInit {
       let config = await self.service.getAll();
       let el = self.keyBinderInputRef.nativeElement;
       createHotKeyBinder(el, (result) => {
-        // console.log('result:' + result);
         self.service.save('startHotKeys', result);
       }, {
         initialValue: config.startHotKeys,

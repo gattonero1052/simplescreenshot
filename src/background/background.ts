@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener((message, sender, senderResponse) => {
           dataUrl,
           websiteUrl: tab.url,
          },
-        (response) => console.log(response))
+        (response) => {})
     })();
   }
 });

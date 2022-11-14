@@ -1,5 +1,5 @@
-const controlCodes = new Set<string>();
 let finalCode = '';
+const controlCodes = new Set<string>();
 const codes = new Set<string>();
 const CONTROL_KEYS = ['ControlLeft', 'AltRight', 'Meta', 'ControlRight', 'ShiftLeft', 'ShiftRight', 'AltLeft'];
 const KEYS_SHOWMAP = {

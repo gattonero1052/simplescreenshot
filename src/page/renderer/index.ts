@@ -122,8 +122,6 @@ function getZoomedInAreaMatrix({ x, y, width, height, scaleX, scaleY, targetX, t
 }
 
 /**
- * TODO update JSDoc types
- * 
  * @param {object} preview preview rectangle
  * @param {object} info info rectangle
  * @param {x} number mouse position text for x coordinate

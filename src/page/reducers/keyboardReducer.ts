@@ -16,7 +16,6 @@ import fragShaderSource from '../renderer/main.frag';
  */
 export const keyboardReducer = (event: KeyboardEvent): boolean => {
   let detail = extractKeyEventDetail(event);
-  console.log(detail,g.state,g);
   switch (g.state) {
     case STATE.IDLE:
       keyOnIdle(detail);//no await

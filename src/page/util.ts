@@ -1,4 +1,4 @@
-import { Rectangle, MouseEventDetail, KeyEventDetail, Point } from './types';
+import { Rectangle, Point } from './types';
 import { Global as g } from './page';
 import * as md5 from 'crypto-js/md5.js';
 import * as CryptoJS from 'crypto-js';
@@ -33,7 +33,6 @@ const EVENT_KEY = {
 const DIGITS = new Set(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']);
 
 function keyCodeTriggerPredictor(keyCombo: any[], event: KeyboardEvent) {
-  console.log(keyCombo,event);
   let [controlKeys, finalKey] = keyCombo;
   return controlKeys.every((key: any) => (event as any)[(EVENT_KEY as any)[(KEYS_SHOWMAP as any)[key]]])
     && event.code === finalKey
@@ -147,7 +146,6 @@ async function asyncSaveInfo(website: string, base64: string) {
   });
   let saveRes = await chrome.storage.local.set({ info });
   saveRes = await chrome.storage.local.set({ [`screenshot-${id}`]: base64 });
-  console.log('set data success', base64, id, saveRes);
 }
 
 
