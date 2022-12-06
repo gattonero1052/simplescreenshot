@@ -56,12 +56,12 @@ export function saveImage(spotlight: Rectangle, imageData?: ImageData) {
   let ctx = canvas.getContext('2d');
 
   if (!ctx) {
-    console.error('error getting canvas context');
+    // console.error('error getting canvas context');
     return;
   }
 
   if (!imageData) {
-    console.error('error getting image data');
+    // console.error('error getting image data');
     return;
   }
 

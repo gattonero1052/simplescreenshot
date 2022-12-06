@@ -45,18 +45,19 @@ const mouseUpOnSelecting = (detail: MouseEventDetail): void => {
   g.state = STATE.COMPLETE;
   // here screenshotStartPoint could be ignored when mouse did't move
   let spotlight;
+  let isScreenshotValid = true;
+
   if (g.mouseMoved) {
     if (!g.screenshotStartPoint || !g.screenshotEndPoint) {
-      console.error('error getting selected area');
-      return
+      isScreenshotValid = false;
+    } else {
+      spotlight = {
+        minX: Math.min(g.screenshotStartPoint.x, g.screenshotEndPoint.x),
+        maxX: Math.max(g.screenshotStartPoint.x, g.screenshotEndPoint.x),
+        minY: Math.min(g.screenshotStartPoint.y, g.screenshotEndPoint.y),
+        maxY: Math.max(g.screenshotStartPoint.y, g.screenshotEndPoint.y),
+      };
     }
-
-    spotlight = {
-      minX: Math.min(g.screenshotStartPoint.x, g.screenshotEndPoint.x),
-      maxX: Math.max(g.screenshotStartPoint.x, g.screenshotEndPoint.x),
-      minY: Math.min(g.screenshotStartPoint.y, g.screenshotEndPoint.y),
-      maxY: Math.max(g.screenshotStartPoint.y, g.screenshotEndPoint.y),
-    };
   } else {
     spotlight = {
       minX: 0,
@@ -66,7 +67,13 @@ const mouseUpOnSelecting = (detail: MouseEventDetail): void => {
     }
   }
 
-  showOptions(spotlight);
+  if (isScreenshotValid && spotlight && spotlight.maxX > spotlight.minX && spotlight.maxY > spotlight.minY) {
+    showOptions(spotlight);
+  } else {
+    // console.error('error getting selected area');
+    reset();
+    destroy();
+  }
 }
 
 // TODO functional buttons
